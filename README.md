@@ -14,22 +14,24 @@ The **TIC-TAC-TOE Game** rules are:
 If all nine squares are filled and neither player has three in a row, the game is a **draw**.
 If a player is able to draw three X’s or three O’s in a row, that player **wins**.
 
-The goal of this project is to build a simple TIC-TAC-TOE game following a **[Test-Driven-Development][3]** approach.
+The goal of this project is to build a simple TIC-TAC-TOE game following a **[Test Driven Development][3]** approach.
 
-> Write a test first, then focus on writing just enough code to make the test pass, only using simple constructs. 
+> "Write a test first, then focus on writing just enough code to make the test pass, only using simple constructs. 
 > Once the test is green, look for opportunities to make the code better, removing duplication, applying patterns, 
-  and generalizing the code. 
+  and generalizing the code." ~ [Sandro Mancuso][4]
+
+> Sandro Mancuso 
 
 
 ## Requirements
 
-- Download and install [Java SE 8][4]
-- Download and install [Maven 3.5.3][5]
+- Download and install [Java SE 8][5]
+- Download and install [Maven 3.5.3][6]
 
 
 ## License
 
-[The MIT License (MIT)][6]
+[The MIT License (MIT)][7]
 
 ````
 Copyright (c) 2018 Solange Umuhire Gasengayire.
@@ -58,6 +60,7 @@ SOFTWARE.
 [1]: https://github.com/SolangeUG/tic-tac-toe-game/blob/master/LICENSE
 [2]: https://docs.oracle.com/en/java/
 [3]: http://agiledata.org/essays/tdd.html
-[4]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-[5]: https://maven.apache.org/download.cgi
-[6]: https://opensource.org/licenses/MIT
+[4]: https://codurance.com/blog/author/sandro-mancuso/
+[5]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+[6]: https://maven.apache.org/download.cgi
+[7]: https://opensource.org/licenses/MIT
