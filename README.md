@@ -60,3 +60,4 @@ SOFTWARE.
 [3]: http://agiledata.org/essays/tdd.html
 [4]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [5]: https://maven.apache.org/download.cgi
+[6]: https://opensource.org/licenses/MIT
