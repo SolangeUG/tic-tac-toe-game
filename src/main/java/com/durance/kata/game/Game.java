@@ -30,10 +30,19 @@ class Game {
         previousMarker = marker;
         board[xPosition][yPosition] = marker;
 
+        // check horizontal win
         String bMarker = board[xPosition][0];
         if (bMarker != null
                 && bMarker.equals(board[xPosition][1])
                 && bMarker.equals(board[xPosition][2])) {
+            status = Status.WIN;
+        }
+
+        // check vertical win
+        bMarker = board[0][yPosition];
+        if (bMarker != null
+                && bMarker.equals(board[1][yPosition])
+                && bMarker.equals(board[2][yPosition])) {
             status = Status.WIN;
         }
 

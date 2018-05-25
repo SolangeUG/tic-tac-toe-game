@@ -57,4 +57,17 @@ class GameShould {
         assertEquals(Status.WIN, state.getStatus());
     }
 
+    @Test
+    @DisplayName("check for vertical win on first column")
+    void check_vertical_win_on_first_column() {
+        game.play("X", 0, 0);
+        game.play("O", 0, 1);
+        game.play("X", 1, 0);
+        game.play("O", 0, 2);
+        GameState state = game.play("X", 2, 0);
+
+        assertEquals(Status.WIN, state.getStatus());
+
+    }
+
 }
