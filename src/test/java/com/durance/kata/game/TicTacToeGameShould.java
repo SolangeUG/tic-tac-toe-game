@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * TIC-TAC-TOE game class unit tests
@@ -19,6 +20,13 @@ class TicTacToeGameShould {
     void make_sure_X_goes_first() {
         String[][] board = game.play("X", 0, 0);
         assertEquals("X", board[0][0]);
+    }
+
+    @Test
+    @DisplayName("make sure O can't go first")
+    void make_sur_O_cant_go_first() {
+        assertThrows(IllegalArgumentException.class,
+                    () ->game.play("O", 2, 1));
     }
 
 }

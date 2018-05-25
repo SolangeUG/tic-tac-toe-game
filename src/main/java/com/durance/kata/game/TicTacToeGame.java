@@ -17,6 +17,10 @@ class TicTacToeGame {
      * @return the current game board
      */
     String[][] play(String marker, int xPosition, int yPosition) {
+        if ("O".equals(marker)) {
+            throw new IllegalArgumentException();
+        }
+
         board[xPosition][yPosition] = marker;
         return board;
     }
