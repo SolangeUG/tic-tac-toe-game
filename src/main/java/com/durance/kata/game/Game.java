@@ -4,7 +4,7 @@ package com.durance.kata.game;
  * A TIC-TAC-TOE game class
  * @author Solange U. Gasengayire
  */
-class TicTacToeGame {
+class Game {
 
     // game 3x3 board
     private String[][] board = new String[3][3];
@@ -19,6 +19,10 @@ class TicTacToeGame {
      */
     String[][] play(String marker, int xPosition, int yPosition) {
         if (marker.equals(previousMarker)) {
+            throw new IllegalArgumentException();
+        }
+
+        if (board[xPosition][yPosition] != null) {
             throw new IllegalArgumentException();
         }
 

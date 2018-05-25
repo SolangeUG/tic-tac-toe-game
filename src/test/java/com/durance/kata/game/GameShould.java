@@ -11,9 +11,9 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  * @author Solange U. Gasengayire
  */
 @DisplayName("TIC-TAC-TOE game should")
-class TicTacToeGameShould {
+class GameShould {
 
-    private TicTacToeGame game = new TicTacToeGame();
+    private Game game = new Game();
 
     @Test
     @DisplayName("make sure X always goes first")
@@ -35,6 +35,14 @@ class TicTacToeGameShould {
         game.play("X", 1, 1);
         assertThrows(IllegalArgumentException.class,
                 () -> game.play("X", 1, 2));
+    }
+
+    @Test
+    @DisplayName("make sure players cannot play on a played position")
+    void make_sure_cant_play_on_played_position() {
+        game.play("X", 1, 1);
+        assertThrows(IllegalArgumentException.class,
+                () -> game.play("O", 1, 1));
     }
 
 }
