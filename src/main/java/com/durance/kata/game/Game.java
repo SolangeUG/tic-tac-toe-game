@@ -15,9 +15,9 @@ class Game {
      * @param marker either X or O
      * @param xPosition x coordinate
      * @param yPosition y coordinate
-     * @return the current game board
+     * @return the current game stae
      */
-    String[][] play(String marker, int xPosition, int yPosition) {
+    GameState play(String marker, int xPosition, int yPosition) {
         if (marker.equals(previousMarker)) {
             throw new IllegalArgumentException();
         }
@@ -26,9 +26,18 @@ class Game {
             throw new IllegalArgumentException();
         }
 
+        Status status = Status.INCOMPLETE;
         previousMarker = marker;
         board[xPosition][yPosition] = marker;
-        return board;
+
+        String bMarker = board[xPosition][0];
+        if (bMarker != null
+                && bMarker.equals(board[xPosition][1])
+                && bMarker.equals(board[xPosition][2])) {
+            status = Status.WIN;
+        }
+
+        return new GameState(board, status);
     }
 
 }

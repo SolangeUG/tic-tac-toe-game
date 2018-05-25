@@ -18,8 +18,8 @@ class GameShould {
     @Test
     @DisplayName("make sure X always goes first")
     void make_sure_X_goes_first() {
-        String[][] board = game.play("X", 0, 0);
-        assertEquals("X", board[0][0]);
+        GameState state = game.play("X", 0, 0);
+        assertEquals("X", state.getBoard()[0][0]);
     }
 
     @Test
@@ -43,6 +43,18 @@ class GameShould {
         game.play("X", 1, 1);
         assertThrows(IllegalArgumentException.class,
                 () -> game.play("O", 1, 1));
+    }
+
+    @Test
+    @DisplayName("check for horizontal win on first row")
+    void check_horizontal_win_on_first_row() {
+        game.play("X", 0, 0);
+        game.play("O", 1, 0);
+        game.play("X", 0, 1);
+        game.play("O", 2, 0);
+        GameState state = game.play("X", 0, 2);
+
+        assertEquals(Status.WIN, state.getStatus());
     }
 
 }
