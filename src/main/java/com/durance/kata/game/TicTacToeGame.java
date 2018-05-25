@@ -17,6 +17,7 @@ class TicTacToeGame {
      * @return the current game board
      */
     String[][] play(String marker, int xPosition, int yPosition) {
+        board[xPosition][yPosition] = marker;
         return board;
     }
 
