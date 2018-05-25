@@ -26,7 +26,15 @@ class TicTacToeGameShould {
     @DisplayName("make sure O can't go first")
     void make_sur_O_cant_go_first() {
         assertThrows(IllegalArgumentException.class,
-                    () ->game.play("O", 2, 1));
+                    () -> game.play("O", 2, 1));
+    }
+
+    @Test
+    @DisplayName("make sure players alternate placing X's and O's on the board")
+    void make_sure_players_take_turn() {
+        game.play("X", 1, 1);
+        assertThrows(IllegalArgumentException.class,
+                () -> game.play("X", 1, 2));
     }
 
 }

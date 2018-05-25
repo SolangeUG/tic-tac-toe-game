@@ -8,6 +8,7 @@ class TicTacToeGame {
 
     // game 3x3 board
     private String[][] board = new String[3][3];
+    private String previousMarker;
 
     /**
      * Play: a player adds a marker to the board
@@ -21,6 +22,11 @@ class TicTacToeGame {
             throw new IllegalArgumentException();
         }
 
+        if (marker.equals(previousMarker)) {
+            throw new IllegalArgumentException();
+        }
+
+        previousMarker = marker;
         board[xPosition][yPosition] = marker;
         return board;
     }
