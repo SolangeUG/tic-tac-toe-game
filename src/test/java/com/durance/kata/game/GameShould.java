@@ -70,7 +70,7 @@ class GameShould {
     }
 
     @Test
-    @DisplayName("check for horizontal win on thord row")
+    @DisplayName("check for horizontal win on third row")
     void check_horizontal_win_on_thord_row() {
         game.play("X", 2, 0);
         game.play("O", 0, 0);
@@ -89,6 +89,30 @@ class GameShould {
         game.play("X", 1, 0);
         game.play("O", 0, 2);
         GameState state = game.play("X", 2, 0);
+
+        assertEquals(Status.WIN, state.getStatus());
+    }
+
+    @Test
+    @DisplayName("check for vertical win on second column")
+    void check_vertical_win_on_second_column() {
+        game.play("X", 0, 1);
+        game.play("O", 0, 0);
+        game.play("X", 1, 1);
+        game.play("O", 0, 2);
+        GameState state = game.play("X", 2, 1);
+
+        assertEquals(Status.WIN, state.getStatus());
+    }
+
+    @Test
+    @DisplayName("check for vertical win on third column")
+    void check_vertical_win_on_third_column() {
+        game.play("X", 0, 2);
+        game.play("O", 0, 0);
+        game.play("X", 1, 2);
+        game.play("O", 0, 1);
+        GameState state = game.play("X", 2, 2);
 
         assertEquals(Status.WIN, state.getStatus());
     }
