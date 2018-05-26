@@ -141,4 +141,20 @@ class GameShould {
         assertEquals(Status.WIN, state.getStatus());
     }
 
+    @Test
+    @DisplayName("check for draw")
+    void check_for_draw() {
+        game.play("X", 0, 0);
+        game.play("O", 1, 1);
+        game.play("X", 1, 0);
+        game.play("O", 2, 0);
+        game.play("X", 0, 2);
+        game.play("O", 0, 1);
+        game.play("X", 2, 1);
+        game.play("O", 2, 2);
+        GameState state = game.play("X", 1, 2);
+
+        assertEquals(Status.DRAW, state.getStatus());
+    }
+
 }

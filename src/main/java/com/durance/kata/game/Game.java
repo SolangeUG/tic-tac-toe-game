@@ -19,11 +19,11 @@ class Game {
      */
     GameState play(String marker, int xPosition, int yPosition) {
         if (marker.equals(previousMarker)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Illegal operation!");
         }
 
         if (board[xPosition][yPosition] != null) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("The requested position is already played on!");
         }
 
         previousMarker = marker;
@@ -52,6 +52,20 @@ class Game {
                 || (bMarker.equals(board[0][2]) && bMarker.equals(board[2][0]))) {
                 return new GameState(board, Status.WIN);
             }
+        }
+
+        // check for draw
+        boolean isDraw = true;
+        for (String[] row: board) {
+            for (String bM: row) {
+                isDraw = isDraw && bM != null;
+                if (! isDraw) {
+                    break;
+                }
+            }
+        }
+        if (isDraw) {
+            return new GameState(board, Status.DRAW);
         }
 
         return new GameState(board, Status.INCOMPLETE);
