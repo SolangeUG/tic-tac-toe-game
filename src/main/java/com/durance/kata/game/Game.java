@@ -48,10 +48,11 @@ class Game {
 
         // check diagonal win
         bMarker = board[1][1];
-        if (bMarker != null
-                && bMarker.equals(board[0][0])
-                && bMarker.equals(board[2][2])) {
-            status = Status.WIN;
+        if (bMarker != null) {
+            if (   (bMarker.equals(board[0][0]) && bMarker.equals(board[2][2]))
+                || (bMarker.equals(board[0][2]) && bMarker.equals(board[2][0]))) {
+                status = Status.WIN;
+            }
         }
 
         return new GameState(board, status);
