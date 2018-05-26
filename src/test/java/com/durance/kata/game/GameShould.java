@@ -67,7 +67,18 @@ class GameShould {
         GameState state = game.play("X", 2, 0);
 
         assertEquals(Status.WIN, state.getStatus());
+    }
 
+    @Test
+    @DisplayName("check for diagonal win on first diagonal")
+    void check_diagonal_win_on_first_diagonal() {
+        game.play("X", 0, 0);
+        game.play("O", 1, 0);
+        game.play("X", 1, 1);
+        game.play("O", 2, 0);
+        GameState state = game.play("X", 2, 2);
+
+        assertEquals(Status.WIN, state.getStatus());
     }
 
 }

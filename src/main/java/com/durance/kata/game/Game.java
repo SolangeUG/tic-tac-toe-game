@@ -46,6 +46,14 @@ class Game {
             status = Status.WIN;
         }
 
+        // check diagonal win
+        bMarker = board[1][1];
+        if (bMarker != null
+                && bMarker.equals(board[0][0])
+                && bMarker.equals(board[2][2])) {
+            status = Status.WIN;
+        }
+
         return new GameState(board, status);
     }
 
