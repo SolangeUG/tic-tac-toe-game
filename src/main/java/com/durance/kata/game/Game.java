@@ -26,7 +26,6 @@ class Game {
             throw new IllegalArgumentException();
         }
 
-        Status status = Status.INCOMPLETE;
         previousMarker = marker;
         board[xPosition][yPosition] = marker;
 
@@ -35,7 +34,7 @@ class Game {
         if (bMarker != null
                 && bMarker.equals(board[xPosition][1])
                 && bMarker.equals(board[xPosition][2])) {
-            status = Status.WIN;
+            return new GameState(board, Status.WIN);
         }
 
         // check vertical win
@@ -43,7 +42,7 @@ class Game {
         if (bMarker != null
                 && bMarker.equals(board[1][yPosition])
                 && bMarker.equals(board[2][yPosition])) {
-            status = Status.WIN;
+            return new GameState(board, Status.WIN);
         }
 
         // check diagonal win
@@ -51,11 +50,11 @@ class Game {
         if (bMarker != null) {
             if (   (bMarker.equals(board[0][0]) && bMarker.equals(board[2][2]))
                 || (bMarker.equals(board[0][2]) && bMarker.equals(board[2][0]))) {
-                status = Status.WIN;
+                return new GameState(board, Status.WIN);
             }
         }
 
-        return new GameState(board, status);
+        return new GameState(board, Status.INCOMPLETE);
     }
 
 }
